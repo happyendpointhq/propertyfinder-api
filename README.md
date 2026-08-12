@@ -1,159 +1,269 @@
-## 🏠 PropertyFinder API – UAE Real Estate Data
+# PropertyFinder API
 
-### 🚨 📊 Exclusive Dataset Available (Limited Offer)
-**PropertyFinder Transactions Data (120K+ records)**  
-🗓 Scraped on **April 13, 2026**  
-💰 Available at a **very affordable price**
+Real-time access to PropertyFinder UAE property data: 500K+ listings for sale and
+rent across Dubai, Abu Dhabi and Sharjah, plus commercial property, off-plan
+projects, agents, brokerages, price trends, and historical transactions.
+Everything returns structured JSON over a normal REST API, so there is no
+scraping, no proxy rotation, and no HTML parsing to maintain.
 
-👉 Want to purchase the dataset? Contact: **happyendpointhq@gmail.com**
+Built and maintained by [Happy Endpoint](https://happyendpoint.com).
 
----
-
-### ⚡ Real-Time UAE Property Data (No Proxies Needed)
-
-- 📅 **Last API Update**: April 02, 2026  
-- 🚀 **500K+ Live Listings** (Rent, Buy, Commercial, New Projects)  
-- 🇦🇪 Coverage: **Dubai, Abu Dhabi, Sharjah & all UAE**  
-- 👨‍💼 Includes **Agents & Broker Contacts**  
-- ⚡ Fast responses with **Redis caching**
-
-[![Platform](https://img.shields.io/badge/Platform-RapidAPI-blue)](https://rapidapi.com/)
-[![Status](https://img.shields.io/badge/Status-Production%20Ready-success)]()
-[![Uptime](https://img.shields.io/badge/Uptime-99.9%25-brightgreen)]()
-[![Response Time](https://img.shields.io/badge/Latency-<400ms-blueviolet)]()
-
-![Propertyfinder Bayut Custom Data Scrape Happyendpoint](https://i.ibb.co/CpLQFZXf/propertyfinder-bayut-happyendpoint.png "Propertyfinder Bayut Custom Data Scrape Happyendpoint")
-
-## 🌐 Useful Links
-
-* 🌍 **Official Website:** [https://uaepropertyapi.com/](https://uaepropertyapi.com/)
-* 🔗 **Access API Here:** [https://rapidapi.com/happyendpoint/api/uae-real-estate-property](https://rapidapi.com/happyendpoint/api/uae-real-estate-property)
-* 🐦 **Twitter:** [https://x.com/happyendpointhq](https://x.com/happyendpointhq)
-* 📩 **Contact Email:** [happyendpointhq@gmail.com](mailto:happyendpointhq@gmail.com)
+- Subscribe on RapidAPI: https://rapidapi.com/happyendpoint/api/uae-real-estate-property
+- Product page: https://happyendpoint.com/library/propertyfinder-api
+- Official site: https://uaepropertyapi.com
+- Hosted docs: https://happyendpointhq.github.io/propertyfinder-api/
 
 ---
 
-Access the most comprehensive real estate database in the UAE! This API provides real-time access to property listings (rent, buy, commercial, new projects), agent profiles, broker directories, market insights, and historical transaction data directly from PropertyFinder.
+## What you get
 
-Perfect for building real estate platforms, **PropTech apps**, market analysis tools, or investment dashboards.
+PropertyFinder is one of the two dominant property portals in the UAE. This API
+exposes its data programmatically:
 
-Access the most comprehensive UAE real estate database with properties from **Dubai, Abu Dhabi, Sharjah**, and across all **United Arab Emirates**. This API delivers **500K+ property listings** including apartments, villas, and commercial spaces, making it ideal for PropTech applications, real estate platforms, and market analysis tools.
+- Residential listings for sale and rent
+- Commercial listings: offices, retail, warehouses, land
+- Off-plan and new development projects
+- Full property records with images, amenities, specifications, and location
+- Agents and brokerages, including direct contact details
+- Price trends and community insights by location
+- Historical transaction records
+- Real estate developers
 
-The PropertyFinder API provides real-time access to **rent, buy, commercial, and new project listings**, along with a complete **UAE agent and broker database** with direct contact information included. Each listing comes with **rich property details** such as images, amenities, specifications, and location data, all updated daily from PropertyFinder.ae to ensure accuracy and freshness.
-
-Built for performance and scale, the API offers **advanced filtering** by location, property type, bedrooms, bathrooms, price range, size, listing dates, and category (Rent / Buy / Commercial / New Projects). Responses are delivered via a **RESTful JSON API** with pagination support and **Redis caching** for fast, reliable access.
-
-In addition to live listings, the API unlocks **market intelligence** including price trends, community insights, and historical transaction data—perfect for **investment analysis, lead generation platforms, property comparison websites, and real estate mobile apps**.
-
-Whether you’re building a full-featured property portal, a data-driven investment dashboard, or a high-performance PropTech product, this API offers the **most complete UAE real estate dataset available**, with professional-grade performance and flexible, tiered pricing to match every stage of growth.
-
----
-
-## 🏆 Why Choose This API?
-
-- **500K+ Property Listings**: Apartments, villas, offices, retail, warehouses, land, and new projects.
-- **Nationwide Coverage**: Dubai, Abu Dhabi, Sharjah, and all major UAE communities.
-- **Agent & Broker Database**: Direct contact details included (a rare feature).
-- **Rich Property Details**: High-quality images, amenities, specifications, and floor plans.
-- **Real-Time Data**: Updated daily from PropertyFinder.ae.
-- **High Performance**: Redis caching for ultra-fast responses.
-- **RESTful JSON API**: Clean, structured, and easy to integrate.
-- **Pagination Support**: Built for large-scale data consumption.
-- **Tiered Pricing**: Flexible plans for startups, enterprises, and everything in between.
-
-Start building your **UAE real estate application today**.
+Coverage is UAE-wide: Dubai, Abu Dhabi, Sharjah, and the northern emirates.
+Listings are refreshed daily, and responses are Redis-cached for latency.
 
 ---
 
-## 🔍 Key Features
+## Getting started
 
-- **Complete Market Coverage**: Access thousands of listings for residential and commercial properties.
-- **Granular Data**: Get detailed property attributes, amenities, location trees, and floor plans.
-- **Agent & Broker Directory**: Search and filter real estate professionals and agencies.
-- **Market Intelligence**: Retrieve price trends, community insights, and historical transaction data.
-- **Structured Responses**: Clean, parsed JSON responses for easy integration.
+### 1. Get an API key
 
----
+Subscribe on RapidAPI. There is a free tier:
+https://rapidapi.com/happyendpoint/api/uae-real-estate-property
 
-## 📌 Endpoints Overview
+### 2. Make a request
 
-### 1. **Location Autocomplete**
+Every request needs two headers. Start with a location lookup, because the search
+endpoints take a location identifier rather than a place name.
 
-- **Endpoint**: `/autocomplete-location`
-- **Description**: Search for locations, communities, or buildings to get their IDs for subsequent searches.
-- **Parameters**: `query` (e.g., "Dubai Marina")
-- **Response**: List of matching locations with IDs and coordinates.
+```bash
+curl "https://propertyfinder-uae-data.p.rapidapi.com/autocomplete-location?query=dubai%20marina" \
+  -H "x-rapidapi-host: propertyfinder-uae-data.p.rapidapi.com" \
+  -H "x-rapidapi-key: YOUR_RAPIDAPI_KEY"
+```
 
-### 2. **Property Search**
+### Python
 
-- **Endpoints**:
-  - `/search-property` (Rent & Buy)
-  - `/search-commercial-rent`
-  - `/search-commercial-buy`
-  - `/search-new-projects`
-- **Description**: Advanced search for properties based on multiple criteria.
-- **Parameters**: `location_id`, `price_min`, `price_max`, `bedrooms`, `bathrooms`, `area_min`, `area_max`, `amenities`, `property_type`, `sort` (newest, price_asc, etc.).
-- **Response**: List of properties with key details like price, location, agent info, and images.
+```python
+import os
 
-### 3. **Property Details**
+import requests
 
-- **Endpoint**: `/property-details`
-- **Description**: Retrieve comprehensive details for a specific property listing.
-- **Parameters**: `property_id`
-- **Response**: Full property object including description, amenities, floor plans, and agent contact info.
+HOST = "propertyfinder-uae-data.p.rapidapi.com"
+HEADERS = {
+    "x-rapidapi-host": HOST,
+    "x-rapidapi-key": os.environ["RAPIDAPI_KEY"],
+}
 
-### 4. **Agents & Brokers**
 
-- **Endpoints**:
-  - `/search-agents` (Filtered list)
-  - `/search-agents-detailed` (Full profile data)
-  - `/search-brokers` (Filtered list)
-  - `/search-brokers-detailed` (Full agency data)
-- **Description**: Find real estate agents and brokerages operating in specific areas.
-- **Parameters**: `location_id`, `sort`, `page`, `limit`.
-- **Response**: Detailed profiles including contact info, languages spoken, and active listings count.
+def get(path, **params):
+    r = requests.get(
+        f"https://{HOST}{path}",
+        params={k: v for k, v in params.items() if v is not None},
+        headers=HEADERS,
+        timeout=30,
+    )
+    r.raise_for_status()
+    return r.json()
 
-### 5. **Agent & Broker Properties**
 
-- **Endpoints**:
-  - `/agent-properties`
-  - `/broker-properties`
-- **Description**: Get all active listings for a specific agent or brokerage.
-- **Parameters**: `agent_id` or `broker_id`, `page`, `sort`.
-- **Response**: List of properties managed by the specified entity.
+locations = get("/autocomplete-location", query="dubai marina")
+listings = get("/search-buy", location_id="1", price_max=2_000_000)
+```
 
-### 6. **Market Data & Insights**
+### JavaScript
 
-- **Endpoint**: `/price-trend-of-location`
-  - **Description**: Historical price trends for a specific location and property type.
-  - **Parameters**: `location_id`, `property_type`, `bedrooms`, `period` (1y, 6m, etc.).
-- **Endpoint**: `/property-insight`
-  - **Description**: In-depth community insights, average prices, and popularity metrics.
-  - **Parameters**: `location_id`.
-- **Endpoint**: `/get-transactions`
-  - **Description**: Historical sales and rental transaction records.
-  - **Parameters**: `location_id`, `transaction_type` (sold/rented), `property_type`, `bedrooms`.
+```javascript
+const HOST = 'propertyfinder-uae-data.p.rapidapi.com';
 
-### 7. **Directories**
+async function get(path, params = {}) {
+  const url = new URL(`https://${HOST}${path}`);
+  for (const [k, v] of Object.entries(params)) {
+    if (v != null) url.searchParams.set(k, v);
+  }
 
-- **Endpoint**: `/real-estate-developers`
-  - **Description**: List of active real estate developers in the UAE.
-  - **Parameters**: `location` (e.g., dubai), `page`.
-- **Endpoint**: `/communities`
-  - **Description**: List of communities sorted by popularity or affordability.
-  - **Parameters**: `sort` (affordability/popularity).
+  const res = await fetch(url, {
+    headers: {
+      'x-rapidapi-host': HOST,
+      'x-rapidapi-key': process.env.RAPIDAPI_KEY,
+    },
+  });
+  if (!res.ok) throw new Error(`PropertyFinder API ${res.status}`);
+  return res.json();
+}
+
+const listings = await get('/search-buy', { location_id: '1', price_max: 2000000 });
+```
 
 ---
 
-💼 **Perfect For**
+## Endpoints
 
-- Real estate mobile apps
-- Property comparison platforms
-- Market research & analytics
-- Investment analysis tools
-- Lead generation systems
-- CRM & PropTech integrations
+### Locations and market data
+
+| Endpoint | Returns |
+|---|---|
+| `GET /autocomplete-location` | Location search. Returns the identifiers other endpoints need |
+| `GET /price-trend-of-location` | Price trends over time for a location |
+| `GET /property-insight` | Market insight for a property or area |
+
+### Residential listings
+
+| Endpoint | Returns |
+|---|---|
+| `GET /search-buy` | Properties for sale |
+| `GET /search-rent` | Properties for rent |
+| `GET /search-new-projects` | Off-plan and new development projects |
+| `GET /property-details` | Full record for a single property |
+
+### Commercial listings
+
+| Endpoint | Returns |
+|---|---|
+| `GET /search-commercial-buy` | Commercial property for sale |
+| `GET /search-commercial-rent` | Commercial property for rent |
+
+### Agents and brokerages
+
+| Endpoint | Returns |
+|---|---|
+| `GET /search-agents` | Agents matching a search |
+| `GET /search-agents-detailed` | Agents with extended profile data |
+| `GET /agent-properties` | All listings from one agent |
+| `GET /search-brokers` | Brokerages matching a search |
+| `GET /search-brokers-detailed` | Brokerages with extended profile data |
+| `GET /broker-properties` | All listings from one brokerage |
+| `GET /real-estate-developer` | Real estate developers |
+
+### Transactions
+
+| Endpoint | Returns |
+|---|---|
+| `GET /get-transactions` | Historical property transactions |
 
 ---
 
-real estate api, propertyfinder api, dubai real estate data, uae property listings, real estate market data, property search api, rent in dubai, buy apartment dubai, commercial real estate uae, real estate agents directory, property broker api, real estate transactions data, property price trends, invest in dubai real estate, off-plan projects uae, new developments dubai, property insights api, dubai marina apartments, downtown dubai villas, business bay offices, real estate analytics, property valuation data, rental yield calculator, investment property finder, luxury real estate dubai, affordable housing uae, commercial offices for rent, warehouses for sale, retail space dubai, land for sale uae, property management api, real estate developer list, emaar properties, damac properties, nakheel projects, dubai land department data, rera agent search, makani number search, ejari registration data, mortgage calculator api, housing market trends, residential communities uae, property listings database, real estate leads generation, property portal api, listing aggregation service, real estate crm integration, property data scraping, real estate tech solutions, proptech api, dubai hills estate, palm jumeirah villas, jumeirah village circle apartments
+## Using this API from Claude, Cursor, or another MCP client
+
+RapidAPI hosts an MCP server, so you can query this API from an AI assistant
+without writing any code:
+
+```json
+{
+  "mcpServers": {
+    "PropertyFinder UAE": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://mcp.rapidapi.com",
+        "--header",
+        "x-api-host: propertyfinder-uae-data.p.rapidapi.com",
+        "--header",
+        "x-api-key: YOUR_RAPIDAPI_KEY"
+      ]
+    }
+  }
+}
+```
+
+| Client | Config path |
+|---|---|
+| Claude Desktop (macOS) | `~/Library/Application Support/Claude/claude_desktop_config.json` |
+| Claude Desktop (Windows) | `%APPDATA%\Claude\claude_desktop_config.json` |
+| Cursor | `~/.cursor/mcp.json` |
+| Claude Code | `.mcp.json` in your project root |
+
+---
+
+## What people build with this
+
+- Property portals and listing aggregators
+- Investment dashboards tracking price per sqm by community
+- Comparison tools across Dubai neighbourhoods
+- Agent and brokerage directories
+- Lead generation platforms
+- CRM integrations that keep listing data in sync
+- Market research on off-plan supply and handover timelines
+
+---
+
+## FAQ
+
+### Does PropertyFinder have an official public API?
+
+No. PropertyFinder does not publish a public API for listing data. This API is
+built and maintained by Happy Endpoint to provide that access.
+
+### Is there a free tier?
+
+Yes. RapidAPI hosts a free plan with a monthly request quota, enough to prototype
+against.
+
+### How is this different from scraping?
+
+Scraping a property portal means maintaining CSS selectors that break on every
+redesign, rotating proxies, handling bot challenges, and accepting that it may
+breach the site's terms. This is a REST API returning JSON with a stable
+contract.
+
+### How do I get a location identifier?
+
+Call `/autocomplete-location` with the area name. The search endpoints take that
+identifier rather than a plain place name. A wrong identifier tends to return a
+different area rather than an error, so confirm it rather than guessing.
+
+### What is the difference between listings and transactions?
+
+Listings are asking prices, what sellers currently want. Transactions are what
+property actually sold for. For valuation and yield work, use
+`/get-transactions`.
+
+### Can I get bulk historical data instead of calling the API?
+
+Yes. Happy Endpoint sells a PropertyFinder UAE historical transactions dataset of
+120K+ records as a one-off file. See
+[happyendpoint.com/datasets](https://happyendpoint.com/datasets) or email
+happyendpointhq@gmail.com.
+
+### Do you cover Bayut as well?
+
+Yes, separately. See [bayut-api](https://github.com/happyendpointhq/bayut-api).
+Most people building UAE market coverage use both, since listing inventory only
+partly overlaps between the two portals.
+
+---
+
+## Related repos
+
+- [bayut-api](https://github.com/happyendpointhq/bayut-api) - the other major UAE portal
+- [uae-real-estate-data-guide](https://github.com/happyendpointhq/uae-real-estate-data-guide) - every route to UAE property data, including alternatives to us
+- [bayut-api-python-examples](https://github.com/happyendpointhq/bayut-api-python-examples) - runnable Python patterns that transfer to this API
+- [dubai-rental-yield-calculator](https://github.com/happyendpointhq/dubai-rental-yield-calculator) - yield analysis on UAE property data
+- [dubai-property-price-tracker](https://github.com/happyendpointhq/dubai-property-price-tracker) - scheduled price monitoring
+
+---
+
+## About Happy Endpoint
+
+[Happy Endpoint](https://happyendpoint.com) builds and maintains real-time data
+APIs for property portals, retailers, and marketplaces. All APIs are available on
+RapidAPI with a free tier.
+
+- Catalogue: [happyendpoint.com/library](https://happyendpoint.com/library)
+- Datasets: [happyendpoint.com/datasets](https://happyendpoint.com/datasets)
+- Documentation: [docs.happyendpoint.com](https://docs.happyendpoint.com)
+- Contact: happyendpointhq@gmail.com
+
+## Licence
+
+MIT. See [LICENSE](LICENSE).
