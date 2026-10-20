@@ -47,8 +47,8 @@ Every request needs two headers. Start with a location lookup, because the searc
 endpoints take a location identifier rather than a place name.
 
 ```bash
-curl "https://propertyfinder-uae-data.p.rapidapi.com/autocomplete-location?query=dubai%20marina" \
-  -H "x-rapidapi-host: propertyfinder-uae-data.p.rapidapi.com" \
+curl "https://uae-real-estate-property.p.rapidapi.com/autocomplete-location?query=dubai%20marina" \
+  -H "x-rapidapi-host: uae-real-estate-property.p.rapidapi.com" \
   -H "x-rapidapi-key: YOUR_RAPIDAPI_KEY"
 ```
 
@@ -59,7 +59,7 @@ import os
 
 import requests
 
-HOST = "propertyfinder-uae-data.p.rapidapi.com"
+HOST = "uae-real-estate-property.p.rapidapi.com"
 HEADERS = {
     "x-rapidapi-host": HOST,
     "x-rapidapi-key": os.environ["RAPIDAPI_KEY"],
@@ -84,7 +84,7 @@ listings = get("/search-buy", location_id="1", price_max=2_000_000)
 ### JavaScript
 
 ```javascript
-const HOST = 'propertyfinder-uae-data.p.rapidapi.com';
+const HOST = 'uae-real-estate-property.p.rapidapi.com';
 
 async function get(path, params = {}) {
   const url = new URL(`https://${HOST}${path}`);
@@ -167,7 +167,7 @@ without writing any code:
         "mcp-remote",
         "https://mcp.rapidapi.com",
         "--header",
-        "x-api-host: propertyfinder-uae-data.p.rapidapi.com",
+        "x-api-host: uae-real-estate-property.p.rapidapi.com",
         "--header",
         "x-api-key: YOUR_RAPIDAPI_KEY"
       ]
