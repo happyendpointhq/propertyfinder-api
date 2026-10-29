@@ -12,6 +12,8 @@ Built and maintained by [Happy Endpoint](https://happyendpoint.com).
 - Product page: https://happyendpoint.com/library/propertyfinder-api
 - Official site: https://uaepropertyapi.com
 - Hosted docs: https://happyendpointhq.github.io/propertyfinder-api/
+- Postman documentation: https://documenter.getpostman.com/view/56555678/2sBYHVweca
+- Postman collection (fork and run): https://www.postman.com/happyendpoints-team/property-finder-api
 
 ---
 
