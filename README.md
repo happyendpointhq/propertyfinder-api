@@ -235,7 +235,7 @@ property actually sold for. For valuation and yield work, use
 Yes. Happy Endpoint sells a PropertyFinder UAE historical transactions dataset of
 120K+ records as a one-off file. See
 [happyendpoint.com/datasets](https://happyendpoint.com/datasets) or email
-happyendpointhq@gmail.com.
+hello@happyendpoint.com.
 
 ### Do you cover Bayut as well?
 
@@ -281,7 +281,7 @@ RapidAPI with a free tier.
 - Catalogue: [happyendpoint.com/library](https://happyendpoint.com/library)
 - Datasets: [happyendpoint.com/datasets](https://happyendpoint.com/datasets)
 - Documentation: [docs.happyendpoint.com](https://docs.happyendpoint.com)
-- Contact: happyendpointhq@gmail.com
+- Contact: hello@happyendpoint.com
 
 ## Licence
 
